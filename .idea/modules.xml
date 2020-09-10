@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CECS328Lab1.iml" filepath="$PROJECT_DIR$/CECS328Lab1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CECS328ModifiedInsertionSort.iml" filepath="$PROJECT_DIR$/CECS328ModifiedInsertionSort.iml" />
     </modules>
   </component>
 </project>
