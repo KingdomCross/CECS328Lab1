@@ -8,9 +8,14 @@ import java.util.Arrays;
 
 public class ModifiedInsertionSort {
     public static void main(String[] args){
-        System.out.println("Hello World");
 
-        stringCheck("Hello World");
+        //Test
+        System.out.println("Hello World");
+        StringCheckTest("hello");
+        StringCheckTest("world");
+        CharCompare("hello", "world");
+        System.out.println();
+        CharCompare("testfortoday","todayfortest");
 
         int A[] = new int[10];
         populateArray(A);
@@ -50,11 +55,29 @@ public class ModifiedInsertionSort {
     }
 
     //Processing a String One Character at a Time
-    public static void stringCheck(String n){
-        for (int index = 0; index < n.length();
+    public static void StringCheckTest(String n){
+        for (int index = 0; index < n.length() - 1;
              index++) {
             char aChar = n.charAt(index);
             System.out.println(aChar);
+        }
+    }
+
+    public static void CharCompare(String s1, String s2){
+        for (int index = 0; index < s1.length() - 1;
+             index++) {
+            char aChar = s1.charAt(index);
+            char bChar = s2.charAt(index);
+            if (aChar == bChar){
+                System.out.println(s1 + " " + s2 + " " + aChar + " = " + bChar);
+
+            }
+            else if (aChar <= bChar){
+                System.out.println(s2 + " " + aChar + " < " + bChar);
+            }
+            else {
+                System.out.println(s1 + " " + aChar + " > " + bChar);
+            }
         }
     }
 }
