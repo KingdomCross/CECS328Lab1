@@ -7,77 +7,58 @@ Reference: https://www.journaldev.com/585/insertion-sort-java#:~:text=Insertion%
 import java.util.Arrays;
 
 public class ModifiedInsertionSortAlex {
-    public static void main(String[] args){
+       public static void main(String[] args)
+    {
+    	Scanner input = new Scanner(System.in);
+        System.out.print("Enter a string of words: ");
+        String[] original = input.nextLine().split("\\s+");
+        String[] words = original.clone();  //get a clone of original array
+        int[] counter = new int[original.length]; // get a empty Int array for counter
 
-        //Test
-        System.out.println("Hello World");
-        StringCheckTest("hello");
-        StringCheckTest("world");
-        CharCompare("hello", "world");
-        System.out.println();
-        CharCompare("testfortoday","todayfortest");
+        
+        
+        sort(original, counter);
+        
+        System.out.println( " ");
 
-        int A[] = new int[10];
-        populateArray(A);
-        System.out.println("Before Sorting: ");
-        printArray(A);
-        // sort the array
-        insertionSort(A);
-        System.out.println("\nAfter Sorting: ");
-        printArray(A);
+
+	 
+   	 for(int i = 1;i<words.length;i++)
+     {
+     	System.out.print(words[i] + " ");
+     	System.out.println(counter[i] + " ");
+     	
+     }
+        
+        
     }
+    
+    public static void sort(String[] array, int[] counter)
+    {
+    	String key;
+        
+    	 for (int i=1; i<array.length; ++i)
+    	 {
+             key = array[i];
+             int j = i-1;
+             while (j>=0 && array[j].compareTo(key)>0)
+             {
+            	 array[j+1] = array[j];
+                 j = j-1;
+                 counter[i] = counter[i] +1;
+             }
+             array[j+1] = key;
 
-    /**
-     * This method will sort the integer array using insertion sort in java algorithm
-     *
-     * @param arr
-     */
-    private static void insertionSort(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int valueToSort = arr[i];
-            int j = i;
-            while (j > 0 && arr[j - 1] > valueToSort) {
-                arr[j] = arr[j - 1];
-                j--;
-            }
-            arr[j] = valueToSort;
         }
+    	 for(int i = 0;i<array.length;i++)
+         {
+         	System.out.print(array[i] + " ");
+
+         	
+         }
+    	 
+
+         
     }
 
-    public static void printArray(int[] B) {
-        System.out.println(Arrays.toString(B));
-    }
-
-    public static void populateArray(int[] B) {
-        for (int i = 0; i < B.length; i++) {
-            B[i] = (int) (Math.random() * 100);
-        }
-    }
-
-    //Processing a String One Character at a Time
-    public static void StringCheckTest(String n){
-        for (int index = 0; index < n.length() - 1;
-             index++) {
-            char aChar = n.charAt(index);
-            System.out.println(aChar);
-        }
-    }
-
-    public static void CharCompare(String s1, String s2){
-        for (int index = 0; index < s1.length() - 1;
-             index++) {
-            char aChar = s1.charAt(index);
-            char bChar = s2.charAt(index);
-            if (aChar == bChar){
-                System.out.println(s1 + " " + s2 + " " + aChar + " = " + bChar);
-
-            }
-            else if (aChar <= bChar){
-                System.out.println(s2 + " " + aChar + " < " + bChar);
-            }
-            else {
-                System.out.println(s1 + " " + aChar + " > " + bChar);
-            }
-        }
-    }
 }
