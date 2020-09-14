@@ -56,7 +56,7 @@ public class ModifiedInsertionSortAlex {
     }
 
     public static void CharCompare(String s1, String s2){
-        int keyLength;
+        int keyLength; //Used for to compare the shortest word
         if (s1.length() <= s2.length()){
             keyLength = s1.length() - 1;
         }
@@ -68,9 +68,9 @@ public class ModifiedInsertionSortAlex {
              index++) {
             char aChar = s1.charAt(index);
             char bChar = s2.charAt(index);
-            if (aChar < bChar){
+            if (aChar > bChar){ //This is when the right is less than the left
                 System.out.println(s1 + " " + s2);
-                System.out.println(aChar + " < " + bChar);
+                System.out.println(aChar + " > " + bChar);
             }
         }
     }
