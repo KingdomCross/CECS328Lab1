@@ -6,7 +6,7 @@ Reference: https://www.journaldev.com/585/insertion-sort-java#:~:text=Insertion%
 
 import java.util.Arrays;
 
-public class ModifiedInsertionSort {
+public class ModifiedInsertionSortAlex {
     public static void main(String[] args){
 
         //Test
