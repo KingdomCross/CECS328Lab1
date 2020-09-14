@@ -9,8 +9,17 @@ import java.util.Arrays;
 
 public class ModifiedInsertionSortAlex {
     public static void main(String[] args) {
-        CharCompare("andyhavetest", "alexhavetest");
+        //CharCompare("andyhavetest", "alexhavetest");
+        String[] arr = new String[] {"andy", "ands", "anda", "and", "boats", "boatc", "boat", "an", "sea"};
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Insertion Sort");
+        InsertionSort(arr);
 
+        System.out.println();
     	Scanner input = new Scanner(System.in);
         System.out.print("Enter a string of words: ");
         String[] original = input.nextLine().split("\\s+");
@@ -55,7 +64,7 @@ public class ModifiedInsertionSortAlex {
          
     }
 
-    public static void CharCompare(String s1, String s2){
+    public static String CharCompare(String s1, String s2){
         int keyLength; //Used for to compare the shortest word
         if (s1.length() <= s2.length()){
             keyLength = s1.length() - 1;
@@ -64,14 +73,100 @@ public class ModifiedInsertionSortAlex {
             keyLength = s2.length() - 1;
         }
 
-        for (int index = 0; index < keyLength;
-             index++) {
+        for (int index = 0; index < keyLength; index++) {
             char aChar = s1.charAt(index);
             char bChar = s2.charAt(index);
             if (aChar > bChar){ //This is when the right is less than the left
                 System.out.println(s1 + " " + s2);
                 System.out.println(aChar + " > " + bChar);
+                return s2;
             }
+            else if (aChar < bChar){
+                return  s1;
+            }
+        }
+        return s1;
+    }
+
+    public static void InsertionSort(String[] arr){
+        int keyLength; //Used for to compare the shortest word
+        String aString;
+        String bString;
+        String tempString;
+        String temp2String;
+
+//        for (int i = 0; i < arr.length - 1; i++)
+//        {
+//            System.out.print(arr[i] + " ");
+//        }
+
+        for (int i = 0; i < arr.length - 1; i++){ //We don't want to count the last string because the bString is going to take the last string before i
+            aString = arr[i];
+            //System.out.println(aString + " " + bString);
+            for (int j = 0; j < arr.length - 1 - i; j++){
+                bString = arr[j + i + 1];
+                //System.out.println(j + " j " + bString);
+
+
+                if (aString.equals(bString)){
+                    arr[i] = bString;
+                    tempString = arr[i + 1];
+                    arr[i + 1] = aString;
+                    for(int k = 0; k < arr.length - 1 - i - j; k++){ //if there is more to the right of the list
+                        temp2String = arr[i + k + 2];
+                        arr[i + k + 2] = tempString;
+                        tempString = arr[i + k + 3];
+                        arr[i + k + 3] = temp2String;
+                    }
+                }
+
+                if (aString.length() <= bString.length()){
+                    keyLength = aString.length() - 1;
+                }
+                else {
+                    keyLength = bString.length() - 1;
+                }
+
+                for (int index = 0; index < keyLength; index++) {
+                    char aChar = aString.charAt(index);
+                    char bChar = bString.charAt(index);
+                    if (aChar > bChar){ //This is when the right is less than the left
+                        //return s2;
+                        arr[i] = bString;
+                        tempString = arr[i + 1];
+                        arr[i + 1] = aString;
+
+                        System.out.println(aString + " " + tempString + " temp");
+                        for(int k = 0; k < arr.length - 2 - i - j; k++){ //if there is more to the right of the list
+                            temp2String = arr[i + k + 2];
+                            arr[i + k + 2] = tempString;
+                            System.out.println(k + " " + (arr.length - 2 - i - j));
+
+                            if (k < arr.length - 3 - i - j){
+                                tempString = arr[i + k + 3];
+                                arr[i + k + 3] = temp2String;
+                            }
+                            System.out.println(temp2String + " " + tempString);
+                        }
+                        break;
+                    }
+                    else if (aChar < bChar){
+                        //return  s1;
+                        break;
+                    }
+                }
+                for (int m = 0; m < arr.length; m++)
+                {
+                    System.out.print(arr[m] + " ");
+                }
+                System.out.println("Debug");
+                //return s1;
+            }
+        }
+        System.out.println();
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.print(arr[i] + " ");
         }
     }
 }
