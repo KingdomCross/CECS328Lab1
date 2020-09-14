@@ -27,15 +27,17 @@ public class ModifiedInsertionSortAlex {
         }
     }
     
-    public static void sort(String[] array, int[] counter)
+     public static void sort(String[] array, int[] counter)
     {
     	String key;
         
-    	 for (int i=1; i<array.length; ++i)
+    	 for (int i=1; i < array.length; ++i)
     	 {
              key = array[i];
              int j = i-1;
-             while (j>=0 && array[j].compareTo(key)>0)
+
+             
+             while (j >= 0 && charCompare(array[i],array[j]))
              {
             	 array[j+1] = array[j];
                  j = j-1;
@@ -48,30 +50,60 @@ public class ModifiedInsertionSortAlex {
          {
          	System.out.print(array[i] + " ");
 
-         	
          }
     	 
 
          
     }
+    
+    
+    public static boolean charCompare(String s1, String s2)
+    {
+    	int keyLength;
+    	boolean flag = false;
 
-    public static void CharCompare(String s1, String s2){
-        int keyLength; //Used for to compare the shortest word
-        if (s1.length() <= s2.length()){
-            keyLength = s1.length() - 1;
-        }
-        else {
-            keyLength = s2.length() - 1;
+  
+    	
+    	if (s1.length() <= s2.length())
+    	{
+    		keyLength = s1.length() - 1;
+    	}
+    	else 
+        {
+    		keyLength = s2.length() - 1;
         }
 
-        for (int index = 0; index < keyLength;
-             index++) {
-            char aChar = s1.charAt(index);
-            char bChar = s2.charAt(index);
-            if (aChar > bChar){ //This is when the right is less than the left
-                System.out.println(s1 + " " + s2);
-                System.out.println(aChar + " > " + bChar);
-            }
-        }
+    	System.out.println("comparing " + s1 + " and " + s2);
+        
+    	for (int index = 0; index < keyLength; index++) 
+    	{
+    		char aChar = s1.charAt(index);
+    		char bChar = s2.charAt(index);
+    		System.out.println(bChar + " " + aChar+ " "+Character.valueOf(bChar).compareTo(Character.valueOf(aChar)));
+    		System.out.println("index"+index);
+
+    		
+    		while(flag = false)
+    		{
+    			if(Character.valueOf(bChar).compareTo(Character.valueOf(aChar)) < 0)
+    			{
+    				flag = true;
+    			}
+    			else
+    			{
+    				flag = false;
+    			}
+    			
+    		}
+    		
+    		System.out.println("temvalue "+ flag);
+
+    	}
+    	
+    	
+		return flag;
+    	
+    	
     }
+    
 }
