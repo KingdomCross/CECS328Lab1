@@ -8,15 +8,12 @@ import java.util.Scanner;
 
 public class ModifiedInsertionSortAlex {
     public static void main(String[] args) {
-        String[] strArray = new String[] {"andy", "ands", "anda", "and", "boats", "boatc", "boat", "an", "sea"};
-        String[] strArray2 = new String[] {"check", "checkz", "check", "checks", "checks", "check"};
-        String[] strArray3 = new String[] {"apple", "test", "going", "zebra", "aardvark"};
-        //InsertionSort(strArray);
+        String[] strArray = new String[] {"apple", "test", "going", "zebra", "aardvark"};
+        String[] strArray2 = new String[] {"andy", "ands", "anda", "and", "boats", "boatc", "boat", "an", "sea"};
+        String[] strArray3 = new String[] {"check", "checkz", "check", "checks", "checks", "check"};
+        String[] strArray4 = new String[] {"alex", "alexandra", "sam", "bob", "nick", "zixi", "al"};
 
-        PrintArray(strArray3);
-        System.out.println("[Original]");
-        InsertionSortImperative(strArray3);
-        System.out.println();
+        //InsertionSort(strArray);
 
         PrintArray(strArray);
         System.out.println("[Original]");
@@ -26,6 +23,16 @@ public class ModifiedInsertionSortAlex {
         PrintArray(strArray2);
         System.out.println("[Original]");
         InsertionSortImperative(strArray2);
+        System.out.println();
+
+        PrintArray(strArray3);
+        System.out.println("[Original]");
+        InsertionSortImperative(strArray3);
+        System.out.println();
+
+        PrintArray(strArray4);
+        System.out.println("[Original]");
+        InsertionSortImperative(strArray4);
         System.out.println();
 
     	Scanner input = new Scanner(System.in);
